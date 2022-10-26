@@ -5,14 +5,14 @@ plugins {
 
 android {
   namespace 'com.okuzawats.cleanarchitecture'
-  compileSdk 32
+  compileSdk libs.versions.android.compileSdk.get().toInteger()
 
   defaultConfig {
     applicationId "com.okuzawats.cleanarchitecture"
-    minSdk 24
-    targetSdk 32
-    versionCode 1
-    versionName "1.0"
+    minSdk libs.versions.android.minSdk.get().toInteger()
+    targetSdk libs.versions.android.targetSdk.get().toInteger()
+    versionCode libs.versions.app.versionCode.get().toInteger()
+    versionName libs.versions.app.versionName.get()
 
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     vectorDrawables {
@@ -37,7 +37,7 @@ android {
     compose true
   }
   composeOptions {
-    kotlinCompilerExtensionVersion '1.2.0'
+    kotlinCompilerExtensionVersion libs.versions.compose.ui.get()
   }
   packagingOptions {
     resources {
@@ -47,17 +47,18 @@ android {
 }
 
 dependencies {
+  implementation libs.androidx.core.ktx
+  implementation libs.androidx.lifecycle.runtime.ktx
+  implementation libs.androidx.activity.compose
+  implementation libs.androidx.compose.material
+  androidTestImplementation libs.androidx.test.ext.junit
+  androidTestImplementation libs.androidx.test.espresso.core
 
-  implementation 'androidx.core:core-ktx:1.7.0'
-  implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
-  implementation 'androidx.activity:activity-compose:1.3.1'
-  implementation "androidx.compose.ui:ui:$compose_ui_version"
-  implementation "androidx.compose.ui:ui-tooling-preview:$compose_ui_version"
-  implementation 'androidx.compose.material:material:1.2.0'
-  testImplementation 'junit:junit:4.13.2'
-  androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-  androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-  androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_ui_version"
-  debugImplementation "androidx.compose.ui:ui-tooling:$compose_ui_version"
-  debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
+  implementation libs.compose.ui
+  implementation libs.compose.ui.tooling.preview
+  debugImplementation libs.compose.ui.tooling
+  debugImplementation libs.compose.ui.test.manifest
+  androidTestImplementation libs.compose.ui.test.junit4
+
+  testImplementation libs.junit
 }
