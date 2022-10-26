@@ -3,12 +3,12 @@ root = true
 [*]
 charset = utf-8
 end_of_line = crlf
-indent_size = 4
+indent_size = 2
 indent_style = space
 insert_final_newline = false
 max_line_length = 100
-tab_width = 4
-ij_continuation_indent_size = 8
+tab_width = 2
+ij_continuation_indent_size = 4
 ij_formatter_off_tag = @formatter:off
 ij_formatter_on_tag = @formatter:on
 ij_formatter_tags_enabled = false
@@ -25,7 +25,6 @@ ij_editorconfig_space_before_comma = false
 ij_editorconfig_spaces_around_assignment_operators = true
 
 [{*.ant,*.fxml,*.jhm,*.jnlp,*.jrxml,*.rng,*.tld,*.wsdl,*.xml,*.xsd,*.xsl,*.xslt,*.xul}]
-ij_continuation_indent_size = 4
 ij_xml_align_attributes = false
 ij_xml_align_text = false
 ij_xml_attribute_wrap = normal
@@ -46,7 +45,6 @@ ij_xml_text_wrap = normal
 ij_xml_use_custom_settings = true
 
 [{*.apinotes,*.yaml,*.yml}]
-indent_size = 2
 ij_yaml_align_values_properties = do_not_align
 ij_yaml_autoinsert_sequence_marker = true
 ij_yaml_block_mapping_on_new_line = false
@@ -250,7 +248,7 @@ ij_kotlin_align_multiline_extends_list = false
 ij_kotlin_align_multiline_method_parentheses = false
 ij_kotlin_align_multiline_parameters = true
 ij_kotlin_align_multiline_parameters_in_calls = false
-ij_kotlin_allow_trailing_comma = false
+ij_kotlin_allow_trailing_comma = true
 ij_kotlin_allow_trailing_comma_on_call_site = false
 ij_kotlin_assignment_wrap = normal
 ij_kotlin_blank_lines_after_class_header = 0
@@ -295,8 +293,8 @@ ij_kotlin_method_call_chain_wrap = normal
 ij_kotlin_method_parameters_new_line_after_left_paren = true
 ij_kotlin_method_parameters_right_paren_on_new_line = true
 ij_kotlin_method_parameters_wrap = on_every_item
-ij_kotlin_name_count_to_use_star_import = 5
-ij_kotlin_name_count_to_use_star_import_for_members = 3
+ij_kotlin_name_count_to_use_star_import = 100
+ij_kotlin_name_count_to_use_star_import_for_members = 100
 ij_kotlin_packages_to_use_import_on_demand = java.util.*,kotlinx.android.synthetic.**,io.ktor.**
 ij_kotlin_parameter_annotation_wrap = off
 ij_kotlin_space_after_comma = true
