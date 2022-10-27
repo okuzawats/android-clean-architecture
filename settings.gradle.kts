@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 pluginManagement {
   repositories {
     google()
@@ -14,4 +16,4 @@ dependencyResolutionManagement {
   }
 }
 rootProject.name = "CleanArchitecture"
-include ':app'
+include(":app")
