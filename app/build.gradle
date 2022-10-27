@@ -4,6 +4,9 @@ plugins {
   id("com.google.dagger.hilt.android")
 }
 
+// FIXME
+//  apply in Kotlin KSL is not recommended.
+//  https://kotlinlang.org/docs/kapt.html#using-in-gradle
 apply plugin: "kotlin-kapt"
 
 android {
