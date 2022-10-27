@@ -1,7 +1,13 @@
 plugins {
   id("com.android.application")
   id("org.jetbrains.kotlin.android")
+  id("com.google.dagger.hilt.android")
 }
+
+// FIXME
+//  apply in Kotlin KSL is not recommended.
+//  https://kotlinlang.org/docs/kapt.html#using-in-gradle
+apply plugin: "kotlin-kapt"
 
 android {
   namespace("com.okuzawats.cleanarchitecture")
@@ -49,6 +55,8 @@ android {
 dependencies {
   implementation(libs.androidx.core.ktx)
   implementation(libs.androidx.lifecycle.runtime.ktx)
+  implementation(libs.androidx.lifecycle.viewmodel.ktx)
+  implementation(libs.androidx.lifecycle.viewmodel.compose)
   implementation(libs.androidx.activity.compose)
   implementation(libs.androidx.compose.material)
   androidTestImplementation(libs.androidx.test.ext.junit)
@@ -60,5 +68,13 @@ dependencies {
   debugImplementation(libs.compose.ui.test.manifest)
   androidTestImplementation(libs.compose.ui.test.junit4)
 
+  implementation(libs.hilt.android)
+  kapt(libs.hilt.compiler)
+
   testImplementation(libs.junit)
+}
+
+kapt {
+  // for dagger hilt
+  correctErrorTypes = true
 }
