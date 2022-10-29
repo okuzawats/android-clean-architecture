@@ -5,6 +5,7 @@ plugins {
   id("org.jetbrains.kotlin.android")
   id("com.google.dagger.hilt.android")
   id("kotlin-kapt")
+  id("kotlinx-serialization")
 }
 
 android {
@@ -68,6 +69,11 @@ dependencies {
 
   implementation(libs.hilt.android)
   kapt(libs.hilt.compiler)
+
+  implementation(libs.kotlin.serialization)
+  implementation(libs.retrofit)
+  implementation(libs.retrofit.converter)
+  implementation(libs.okhttp.core)
 
   testImplementation(libs.junit)
 }
