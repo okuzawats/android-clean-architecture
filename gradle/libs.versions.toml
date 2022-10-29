@@ -24,6 +24,7 @@ hilt = "2.44"
 retrofit-kotlin-serialization-converter = "0.8.0"
 retrofit = "2.9.0"
 okhttp = "4.10.0"
+arrow = "1.1.2"
 
 junit = "4.13.2"
 
@@ -47,4 +48,5 @@ hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hil
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-converter = { module = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version.ref = "retrofit-kotlin-serialization-converter" }
 okhttp-core = { module = "com.squareup.okhttp3:okhttp", version.ref ="okhttp" }
+arrow-core = { module = "io.arrow-kt:arrow-core", version.ref = "arrow" }
 junit = { module = "junit:junit", version.ref = "junit" }
