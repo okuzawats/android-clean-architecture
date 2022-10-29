@@ -56,6 +56,7 @@ dependencies {
   implementation(libs.androidx.lifecycle.runtime.ktx)
   implementation(libs.androidx.lifecycle.viewmodel.ktx)
   implementation(libs.androidx.lifecycle.viewmodel.compose)
+  implementation(libs.androidx.activity.ktx)
   implementation(libs.androidx.activity.compose)
   implementation(libs.androidx.compose.material)
   androidTestImplementation(libs.androidx.test.ext.junit)
@@ -74,6 +75,7 @@ dependencies {
   implementation(libs.retrofit)
   implementation(libs.retrofit.converter)
   implementation(libs.okhttp.core)
+  implementation(libs.arrow.core)
 
   testImplementation(libs.junit)
 }
