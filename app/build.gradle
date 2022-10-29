@@ -2,12 +2,8 @@ plugins {
   id("com.android.application")
   id("org.jetbrains.kotlin.android")
   id("com.google.dagger.hilt.android")
+  id("kotlin-kapt")
 }
-
-// FIXME
-//  apply in Kotlin KSL is not recommended.
-//  https://kotlinlang.org/docs/kapt.html#using-in-gradle
-apply plugin: "kotlin-kapt"
 
 android {
   namespace("com.okuzawats.cleanarchitecture")
