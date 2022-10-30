@@ -1,7 +1,5 @@
-@file:Suppress("UnstableApiUsage")
-
 plugins {
-  id("com.android.application")
+  id("com.android.library")
   id("org.jetbrains.kotlin.android")
   id("com.google.dagger.hilt.android")
   id("kotlin-kapt")
@@ -9,20 +7,15 @@ plugins {
 }
 
 android {
-  namespace = "com.okuzawats.cleanarchitecture"
+  namespace = "com.okuzawats.cleanarchitecture.domain"
   compileSdk = libs.versions.android.compileSdk.get().toInt()
 
   defaultConfig {
-    applicationId = "com.okuzawats.cleanarchitecture"
     minSdk = libs.versions.android.minSdk.get().toInt()
     targetSdk = libs.versions.android.targetSdk.get().toInt()
-    versionCode = libs.versions.app.versionCode.get().toInt()
-    versionName = libs.versions.app.versionName.get()
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    vectorDrawables {
-      useSupportLibrary = true
-    }
+    consumerProguardFiles("consumer-rules.pro")
   }
 
   buildTypes {
@@ -52,7 +45,6 @@ android {
 }
 
 dependencies {
-  implementation(project(":domain"))
   implementation(libs.androidx.core.ktx)
   implementation(libs.androidx.lifecycle.runtime.ktx)
   implementation(libs.androidx.lifecycle.viewmodel.ktx)

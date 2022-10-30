@@ -1,8 +1,8 @@
-package com.okuzawats.cleanarchitecture.domain.repository.dogimage
+package com.okuzawats.cleanarchitecture.domain.dogimage
 
 import arrow.core.Either
 import com.okuzawats.cleanarchitecture.domain.exception.DogImageFetchingException
-import com.okuzawats.cleanarchitecture.domain.repository.dogimage.model.DogImage
+import com.okuzawats.cleanarchitecture.domain.dogimage.model.DogImage
 
 /**
  * Repository for dog images
