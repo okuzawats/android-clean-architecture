@@ -12,6 +12,6 @@ import dagger.hilt.android.components.ViewModelComponent
 class UseCaseModule {
   @Provides
   fun provideGetRandomDogImageUseCase(
-      impl: GetRandomDogImageUseCaseImpl,
+    impl: GetRandomDogImageUseCaseImpl,
   ): GetRandomDogImageUseCase = impl
 }
