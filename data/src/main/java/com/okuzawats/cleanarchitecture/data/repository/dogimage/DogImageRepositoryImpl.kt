@@ -15,7 +15,7 @@ import javax.inject.Inject
  */
 class DogImageRepositoryImpl @Inject constructor(
   private val apiClient: ApiClient,
-): DogImageRepository {
+) : DogImageRepository {
   override suspend fun getRandom(): Either<DogImageFetchingException, DogImage> =
     try {
       val response = apiClient.getRandomImage()
@@ -27,4 +27,4 @@ class DogImageRepositoryImpl @Inject constructor(
     } catch (e: IOException) {
       DogImageFetchingException("response not received").left()
     }
-  }
+}
