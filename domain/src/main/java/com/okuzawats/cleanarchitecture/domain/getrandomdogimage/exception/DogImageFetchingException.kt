@@ -1,4 +1,4 @@
-package com.okuzawats.cleanarchitecture.domain.exception
+package com.okuzawats.cleanarchitecture.domain.getrandomdogimage.exception
 
 /**
  * An exception when fetching dog image

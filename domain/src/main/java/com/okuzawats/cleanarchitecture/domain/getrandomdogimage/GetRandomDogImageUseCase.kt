@@ -1,8 +1,8 @@
 package com.okuzawats.cleanarchitecture.domain.getrandomdogimage
 
 import arrow.core.Either
-import com.okuzawats.cleanarchitecture.domain.exception.DogImageFetchingException
-import com.okuzawats.cleanarchitecture.domain.dogimage.model.DogImage
+import com.okuzawats.cleanarchitecture.domain.getrandomdogimage.exception.DogImageFetchingException
+import com.okuzawats.cleanarchitecture.domain.getrandomdogimage.model.DogImage
 import kotlinx.coroutines.flow.Flow
 
 /**
