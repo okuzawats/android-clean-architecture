@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val getRandomDogImageUseCase: GetRandomDogImageUseCase,
+  private val getRandomDogImageUseCase: GetRandomDogImageUseCase,
 ) : ViewModel() {
   fun onEntered() {
     viewModelScope.launch {
