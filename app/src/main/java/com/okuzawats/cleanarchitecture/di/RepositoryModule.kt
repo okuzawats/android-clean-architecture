@@ -1,7 +1,7 @@
 package com.okuzawats.cleanarchitecture.di
 
 import com.okuzawats.cleanarchitecture.data.repository.dogimage.DogImageRepositoryImpl
-import com.okuzawats.cleanarchitecture.domain.repository.dogimage.DogImageRepository
+import com.okuzawats.cleanarchitecture.domain.getrandomdogimage.repository.DogImageRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

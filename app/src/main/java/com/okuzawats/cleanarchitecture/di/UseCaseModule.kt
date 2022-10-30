@@ -1,7 +1,7 @@
 package com.okuzawats.cleanarchitecture.di
 
-import com.okuzawats.cleanarchitecture.domain.usecase.getrandomdogimage.GetRandomDogImageUseCase
-import com.okuzawats.cleanarchitecture.domain.usecase.getrandomdogimage.impl.GetRandomDogImageUseCaseImpl
+import com.okuzawats.cleanarchitecture.domain.getrandomdogimage.GetRandomDogImageUseCase
+import com.okuzawats.cleanarchitecture.domain.getrandomdogimage.impl.GetRandomDogImageUseCaseImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
