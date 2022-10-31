@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-  namespace = "com.okuzawats.cleanarchitecture.data"
+  namespace = "com.okuzawats.cleanarchitecture.data.remote"
   compileSdk = libs.versions.android.compileSdk.get().toInt()
 
   defaultConfig {
@@ -33,9 +33,16 @@ android {
 }
 
 dependencies {
-  implementation(project(":domain"))
+  implementation(project(":data"))
+
   implementation(libs.hilt.android)
   kapt(libs.hilt.compiler)
+
+  implementation(libs.kotlin.serialization)
+  implementation(libs.retrofit)
+  implementation(libs.retrofit.converter)
+  implementation(libs.okhttp.core)
   implementation(libs.arrow.core)
+
   testImplementation(libs.junit)
 }
