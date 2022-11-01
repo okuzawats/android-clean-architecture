@@ -1,33 +1,37 @@
 package com.okuzawats.cleanarchitecture.presentation.main
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import arrow.core.Either
 import com.okuzawats.cleanarchitecture.domain.getrandomdogimage.GetRandomDogImageUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import io.uniflow.android.AndroidDataFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
   private val getRandomDogImageUseCase: GetRandomDogImageUseCase,
-) : ViewModel() {
+) : AndroidDataFlow(defaultState = MainViewModelState.Initial) {
   fun onEntered() {
-    viewModelScope.launch {
+    action {
+      setState(MainViewModelState.Loading)
       getRandomDogImageUseCase()
         .onEach {
           when (it) {
             is Either.Left -> {
-              println("oops! something happen!")
+              setState(MainViewModelState.LoadFailed)
             }
             is Either.Right -> {
-              println("dog image = ${it.value.image}")
+              setState(
+                MainViewModelState.Loaded(
+                  image = it.value.image
+                )
+              )
             }
           }
         }
-        .launchIn(this)
+        .launchIn(viewModelScope)
     }
   }
 }
