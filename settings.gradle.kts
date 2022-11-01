@@ -17,6 +17,8 @@ dependencyResolutionManagement {
 }
 rootProject.name = "CleanArchitecture"
 include(":app")
+include(":ui")
+include(":presentation")
 include(":domain")
 include(":data")
 include(":data:remote")

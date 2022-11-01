@@ -1,28 +1,19 @@
-@file:Suppress("UnstableApiUsage")
-
 plugins {
-  id("com.android.application")
+  id("com.android.library")
   id("org.jetbrains.kotlin.android")
   id("com.google.dagger.hilt.android")
   id("kotlin-kapt")
-  id("kotlinx-serialization")
 }
 
 android {
-  namespace = "com.okuzawats.cleanarchitecture"
+  namespace = "com.okuzawats.cleanarchitecture.ui"
   compileSdk = libs.versions.android.compileSdk.get().toInt()
 
   defaultConfig {
-    applicationId = "com.okuzawats.cleanarchitecture"
     minSdk = libs.versions.android.minSdk.get().toInt()
     targetSdk = libs.versions.android.targetSdk.get().toInt()
-    versionCode = libs.versions.app.versionCode.get().toInt()
-    versionName = libs.versions.app.versionName.get()
 
-    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    vectorDrawables {
-      useSupportLibrary = true
-    }
+    consumerProguardFiles("consumer-rules.pro")
   }
 
   buildTypes {
@@ -51,32 +42,13 @@ android {
   }
 }
 
-kapt {
-  // for dagger hilt
-  correctErrorTypes = true
-}
-
-hilt {
-  enableExperimentalClasspathAggregation = true
-}
-
 dependencies {
-  api(project(":ui"))
-  api(project(":presentation"))
-  api(project(":domain"))
-  api(project(":data"))
-  api(project(":data:remote"))
+  implementation(project(":presentation"))
 
   implementation(libs.androidx.core.ktx)
-  implementation(libs.androidx.lifecycle.runtime.ktx)
-  implementation(libs.androidx.lifecycle.viewmodel.ktx)
-  implementation(libs.androidx.lifecycle.viewmodel.compose)
   implementation(libs.androidx.activity.ktx)
   implementation(libs.androidx.activity.compose)
   implementation(libs.androidx.compose.material)
-  androidTestImplementation(libs.androidx.test.ext.junit)
-  androidTestImplementation(libs.androidx.test.espresso.core)
-
   implementation(libs.compose.ui)
   implementation(libs.compose.ui.tooling.preview)
   debugImplementation(libs.compose.ui.tooling)
@@ -86,11 +58,7 @@ dependencies {
   implementation(libs.hilt.android)
   kapt(libs.hilt.compiler)
 
-  implementation(libs.kotlin.serialization)
-  implementation(libs.retrofit)
-  implementation(libs.retrofit.converter)
-  implementation(libs.okhttp.core)
-  implementation(libs.arrow.core)
-
   testImplementation(libs.junit)
+  androidTestImplementation(libs.androidx.test.ext.junit)
+  androidTestImplementation(libs.androidx.test.espresso.core)
 }
