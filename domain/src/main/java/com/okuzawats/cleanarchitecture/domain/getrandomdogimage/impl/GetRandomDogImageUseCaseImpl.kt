@@ -5,6 +5,7 @@ import com.okuzawats.cleanarchitecture.domain.getrandomdogimage.repository.DogIm
 import com.okuzawats.cleanarchitecture.domain.getrandomdogimage.exception.DogImageFetchingException
 import com.okuzawats.cleanarchitecture.domain.getrandomdogimage.model.DogImage
 import com.okuzawats.cleanarchitecture.domain.getrandomdogimage.GetRandomDogImageUseCase
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
@@ -17,6 +18,8 @@ class GetRandomDogImageUseCaseImpl @Inject constructor(
 ) : GetRandomDogImageUseCase {
   override suspend fun invoke(): Flow<Either<DogImageFetchingException, DogImage>> =
     flow {
+      // TODO remove this delay
+      delay(1500L)
       emit(dogImageRepository.getRandom())
     }
 }
