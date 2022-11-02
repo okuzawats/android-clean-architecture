@@ -22,13 +22,15 @@ class MainActivity : ComponentActivity() {
   @Inject
   internal lateinit var presentationToUiMapper: PresentationToUiMapper
 
+  @Inject
+  internal lateinit var uiStateRenderer: UiStateRenderer
+
   private val viewModel: MainViewModel by viewModels()
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
       CleanArchitectureTheme {
-        // A surface container using the 'background' color from the theme
         Surface(
           modifier = Modifier.fillMaxSize(),
           color = MaterialTheme.colors.background
@@ -36,12 +38,7 @@ class MainActivity : ComponentActivity() {
           viewModel.states
             .map(presentationToUiMapper::toUi)
             .observeAsState().value?.let {
-              when (it) {
-                is UiState.Initial -> InitialView()
-                is UiState.Loading -> LoadingView()
-                is UiState.Image -> ImageView(imageUrl = it.url)
-                is UiState.Error -> ErrorView()
-              }
+              uiStateRenderer.RenderAsComposable(it)
             }
         }
       }
