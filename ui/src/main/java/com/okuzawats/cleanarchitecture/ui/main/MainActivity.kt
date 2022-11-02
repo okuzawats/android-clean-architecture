@@ -13,16 +13,20 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.map
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.okuzawats.cleanarchitecture.presentation.main.MainViewModel
-import com.okuzawats.cleanarchitecture.presentation.main.MainViewModelState
 import com.okuzawats.cleanarchitecture.ui.theme.CleanArchitectureTheme
 import dagger.hilt.android.AndroidEntryPoint
 import io.uniflow.android.livedata.states
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+  @Inject
+  internal lateinit var presentationToUiMapper: PresentationToUiMapper
 
   private val viewModel: MainViewModel by viewModels()
 
@@ -35,20 +39,22 @@ class MainActivity : ComponentActivity() {
           modifier = Modifier.fillMaxSize(),
           color = MaterialTheme.colors.background
         ) {
-          viewModel.states.observeAsState().value?.let {
-            when (it) {
-              is MainViewModelState.Initial -> Text(text = "☕")
-              is MainViewModelState.Loading -> Text(text = "NOW LOADING...")
-              is MainViewModelState.Loaded -> AsyncImage(
-                model = ImageRequest.Builder(LocalContext.current)
-                  .data(it.image)
-                  .crossfade(true)
-                  .build(),
-                contentDescription = null,
-              )
-              is MainViewModelState.LoadFailed -> Text(text = "OOPS...SOMETHING HAPPEN!")
+          viewModel.states
+            .map(presentationToUiMapper::toUi)
+            .observeAsState().value?.let {
+              when (it) {
+                is UiState.Initial -> Text(text = "☕")
+                is UiState.Loading -> Text(text = "NOW LOADING...")
+                is UiState.Image -> AsyncImage(
+                  model = ImageRequest.Builder(LocalContext.current)
+                    .data(it.url)
+                    .crossfade(true)
+                    .build(),
+                  contentDescription = null,
+                )
+                is UiState.Error -> Text(text = "OOPS...SOMETHING HAPPEN!")
+              }
             }
-          }
         }
       }
     }
