@@ -37,9 +37,8 @@ class MainActivity : ComponentActivity() {
         ) {
           viewModel.states
             .map(presentationToUiMapper::toUi)
-            .observeAsState().value?.let {
-              uiStateRenderer.RenderAsComposable(it)
-            }
+            .observeAsState()
+            .let { uiStateRenderer.RenderAsComposable(it) }
         }
       }
     }
