@@ -6,6 +6,16 @@ import io.uniflow.core.flow.data.UIState
  * Express state of [MainViewModel]
  */
 sealed class MainViewModelState : UIState() {
+  companion object {
+    fun from(result: DogImageGetResult): MainViewModelState =
+      when (result) {
+        is DogImageGetResult.FetchFailed -> LoadFailed
+        is DogImageGetResult.Fetched -> Loaded(
+          image = result.dogImage
+        )
+      }
+  }
+
   /**
    * Initial state
    */
