@@ -11,11 +11,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.map
-import coil.compose.AsyncImage
-import coil.request.ImageRequest
 import com.okuzawats.cleanarchitecture.presentation.main.MainViewModel
 import com.okuzawats.cleanarchitecture.ui.theme.CleanArchitectureTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -43,16 +40,10 @@ class MainActivity : ComponentActivity() {
             .map(presentationToUiMapper::toUi)
             .observeAsState().value?.let {
               when (it) {
-                is UiState.Initial -> Text(text = "☕")
-                is UiState.Loading -> Text(text = "NOW LOADING...")
-                is UiState.Image -> AsyncImage(
-                  model = ImageRequest.Builder(LocalContext.current)
-                    .data(it.url)
-                    .crossfade(true)
-                    .build(),
-                  contentDescription = null,
-                )
-                is UiState.Error -> Text(text = "OOPS...SOMETHING HAPPEN!")
+                is UiState.Initial -> InitialView()
+                is UiState.Loading -> LoadingView()
+                is UiState.Image -> ImageView(imageUrl = it.url)
+                is UiState.Error -> ErrorView()
               }
             }
         }
