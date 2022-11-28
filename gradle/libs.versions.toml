@@ -5,9 +5,9 @@ app-versionName = "1.0.0"
 android-compileSdk = "32"
 android-targetSdk = "32"
 android-minSdk = "24"
-android-gradle = "7.4.0-beta02"
+android-gradle = "7.4.0-beta05"
 
-android-gradle-plugin = "7.4.0-beta02"
+android-gradle-plugin = "7.4.0-beta05"
 
 kotlin-core = "1.7.0"
 kotlin-serialization = "1.4.1"
