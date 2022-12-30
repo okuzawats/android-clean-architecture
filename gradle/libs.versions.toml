@@ -14,7 +14,7 @@ kotlin-core = "1.7.20"
 kotlin-serialization = "1.4.1"
 
 androidx-core-ktx = "1.9.0"
-androidx-lifecycle-runtime-ktx = "2.3.1"
+androidx-lifecycle-runtime-ktx = "2.5.1"
 androidx-lifecycle-viewmodel-ktx = "2.5.1"
 androidx-lifecycle-livedata-ktx = "2.5.1"
 androidx-activity-ktx = "1.6.1"
