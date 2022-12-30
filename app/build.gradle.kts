@@ -6,6 +6,7 @@ plugins {
   id("com.google.dagger.hilt.android")
   id("kotlin-kapt")
   id("kotlinx-serialization")
+  id("com.google.android.gms.oss-licenses-plugin")
 }
 
 android {
@@ -82,6 +83,8 @@ dependencies {
   debugImplementation(libs.compose.ui.tooling)
   debugImplementation(libs.compose.ui.test.manifest)
   androidTestImplementation(libs.compose.ui.test.junit4)
+
+  implementation(libs.play.services.oss.licenses)
 
   implementation(libs.uniflow.android)
   testImplementation(libs.uniflow.android.test)

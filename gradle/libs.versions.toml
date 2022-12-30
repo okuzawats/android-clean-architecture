@@ -8,6 +8,7 @@ android-minSdk = "24"
 android-gradle = "7.4.0-beta05"
 
 android-gradle-plugin = "7.4.0-beta05"
+oss-licenses-plugin = "0.10.6"
 
 kotlin-core = "1.7.20"
 kotlin-serialization = "1.4.1"
@@ -23,6 +24,7 @@ androidx-compose-material = "1.3.1"
 androidx-test-ext-junit = "1.1.4"
 androidx-test-espresso-core = "3.4.0"
 compose-ui = "1.3.2"
+play-services-oss-licenses = "17.0.0"
 hilt = "2.44.2"
 retrofit-kotlin-serialization-converter = "0.8.0"
 retrofit = "2.9.0"
@@ -34,6 +36,7 @@ coil = "2.2.2"
 junit = "4.13.2"
 
 [libraries]
+oss-licenses-plugin = { module = "com.google.android.gms:oss-licenses-plugin", version.ref = "oss-licenses-plugin" }
 kotlin-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlin-serialization" }
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-core-ktx" }
 androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle-runtime-ktx" }
@@ -51,6 +54,7 @@ compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview"
 compose-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "compose-ui" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose-ui" }
 compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose-ui" }
+play-services-oss-licenses = { module = "com.google.android.gms:play-services-oss-licenses", version.ref = "play-services-oss-licenses" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
