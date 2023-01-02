@@ -81,3 +81,7 @@ app:
     - opts:
         is_expand: false
       VARIANT: ''
+trigger_map:
+  - pull_request_target_branch: main
+    pull_request_source_branch: '*'
+    workflow: primary
