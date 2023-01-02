@@ -80,7 +80,7 @@ app:
       MODULE: app
     - opts:
         is_expand: false
-      VARIANT: ''
+      VARIANT: "Debug"
 trigger_map:
   - pull_request_source_branch: "*"
     pull_request_target_branch: "main*"
