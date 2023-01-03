@@ -2,23 +2,21 @@ package com.okuzawats.cleanarchitecture.ui.main
 
 import com.okuzawats.cleanarchitecture.presentation.main.MainViewModelEvent
 import com.okuzawats.cleanarchitecture.presentation.main.MainViewModelState
-import io.uniflow.core.flow.data.UIEvent
-import io.uniflow.core.flow.data.UIState
 import javax.inject.Inject
 
 class PresentationToUiMapper @Inject constructor() {
-  fun toUi(presentationState: UIState): UiState =
-    when (presentationState as MainViewModelState) {
+  fun toUi(presentationState: MainViewModelState): UiState =
+    when (presentationState) {
       is MainViewModelState.Initial -> UiState.Initial
       is MainViewModelState.Loading -> UiState.Loading
       is MainViewModelState.Loaded -> UiState.Image(
-        url = (presentationState as MainViewModelState.Loaded).image,
+        url = presentationState.image,
       )
       is MainViewModelState.LoadFailed -> UiState.Error
     }
 
-  fun toUi(presentationEvent: UIEvent): UiEvent =
-    when (presentationEvent as MainViewModelEvent) {
+  fun toUi(presentationEvent: MainViewModelEvent): UiEvent =
+    when (presentationEvent) {
       is MainViewModelEvent.NavigateToLicense -> UiEvent.NavigateToLicense
     }
 }
