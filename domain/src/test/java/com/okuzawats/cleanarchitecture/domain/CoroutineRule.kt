@@ -1,4 +1,4 @@
-package com.okuzawats.cleanarchitecture.presentation
+package com.okuzawats.cleanarchitecture.domain
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
