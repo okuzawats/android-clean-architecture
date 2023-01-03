@@ -87,9 +87,6 @@ dependencies {
 
   implementation(libs.play.services.oss.licenses)
 
-  implementation(libs.uniflow.android)
-  testImplementation(libs.uniflow.android.test)
-
   implementation(libs.hilt.android)
   kapt(libs.hilt.compiler)
 
