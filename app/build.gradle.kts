@@ -69,6 +69,7 @@ dependencies {
   implementation(project(":data:remote"))
 
   implementation(libs.androidx.core.ktx)
+  implementation(libs.androidx.appcompat)
   implementation(libs.androidx.lifecycle.runtime.ktx)
   implementation(libs.androidx.lifecycle.viewmodel.ktx)
   implementation(libs.androidx.lifecycle.viewmodel.compose)
@@ -85,9 +86,6 @@ dependencies {
   androidTestImplementation(libs.compose.ui.test.junit4)
 
   implementation(libs.play.services.oss.licenses)
-
-  implementation(libs.uniflow.android)
-  testImplementation(libs.uniflow.android.test)
 
   implementation(libs.hilt.android)
   kapt(libs.hilt.compiler)

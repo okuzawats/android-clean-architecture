@@ -35,8 +35,6 @@ dependencies {
   implementation(project(":domain"))
   implementation(libs.androidx.lifecycle.viewmodel.ktx)
   implementation(libs.arrow.core)
-  implementation(libs.uniflow.android)
-  testImplementation(libs.uniflow.android.test)
   implementation(libs.hilt.android)
   kapt(libs.hilt.compiler)
   testImplementation(libs.junit)

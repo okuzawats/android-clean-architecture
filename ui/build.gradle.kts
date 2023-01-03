@@ -48,17 +48,12 @@ dependencies {
   implementation(libs.androidx.core.ktx)
   implementation(libs.androidx.activity.ktx)
   implementation(libs.androidx.activity.compose)
-  implementation(libs.androidx.lifecycle.livedata.ktx)
-  implementation(libs.androidx.compose.runtime.livedata)
   implementation(libs.androidx.compose.material)
   implementation(libs.compose.ui)
   implementation(libs.compose.ui.tooling.preview)
   debugImplementation(libs.compose.ui.tooling)
   debugImplementation(libs.compose.ui.test.manifest)
   androidTestImplementation(libs.compose.ui.test.junit4)
-
-  implementation(libs.uniflow.android)
-  testImplementation(libs.uniflow.android.test)
 
   implementation(libs.coil.compose)
 
