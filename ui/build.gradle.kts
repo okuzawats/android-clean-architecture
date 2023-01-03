@@ -57,9 +57,6 @@ dependencies {
   debugImplementation(libs.compose.ui.test.manifest)
   androidTestImplementation(libs.compose.ui.test.junit4)
 
-  implementation(libs.uniflow.android)
-  testImplementation(libs.uniflow.android.test)
-
   implementation(libs.coil.compose)
 
   implementation(libs.hilt.android)
