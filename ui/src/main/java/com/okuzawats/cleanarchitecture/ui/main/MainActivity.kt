@@ -7,15 +7,16 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.map
+import androidx.lifecycle.lifecycleScope
 import com.okuzawats.cleanarchitecture.presentation.main.MainViewModel
 import com.okuzawats.cleanarchitecture.ui.MainNavigator
 import com.okuzawats.cleanarchitecture.ui.theme.CleanArchitectureTheme
 import dagger.hilt.android.AndroidEntryPoint
-import io.uniflow.android.livedata.onEvents
-import io.uniflow.android.livedata.states
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -35,13 +36,16 @@ class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 
-    onEvents(viewModel) { event ->
-      when (presentationToUiMapper.toUi(event)) {
+    viewModel.effect.onEach { effect ->
+      when (presentationToUiMapper.toUi(effect)) {
         is UiEvent.NavigateToLicense -> {
           mainNavigator.toLicense()
         }
       }
-    }
+    }.launchIn(lifecycleScope)
+
+    val viewState = viewModel.state
+      .map(presentationToUiMapper::toUi)
 
     setContent {
       CleanArchitectureTheme {
@@ -49,9 +53,7 @@ class MainActivity : ComponentActivity() {
           modifier = Modifier.fillMaxSize(),
           color = MaterialTheme.colors.background
         ) {
-          viewModel.states
-            .map(presentationToUiMapper::toUi)
-            .observeAsState()
+          viewState.collectAsState(initial = UiState.initial())
             .let {
               uiStateRenderer.RenderAsComposable(
                 uiState = it,

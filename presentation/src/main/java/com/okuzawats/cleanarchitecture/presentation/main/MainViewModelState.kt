@@ -1,12 +1,12 @@
 package com.okuzawats.cleanarchitecture.presentation.main
 
-import io.uniflow.core.flow.data.UIState
-
 /**
  * Express state of [MainViewModel]
  */
-sealed class MainViewModelState : UIState() {
+sealed class MainViewModelState {
   companion object {
+    fun initial(): MainViewModelState = Initial
+
     fun from(result: DogImageGetResult): MainViewModelState =
       when (result) {
         is DogImageGetResult.FetchFailed -> LoadFailed

@@ -1,13 +1,10 @@
 package com.okuzawats.cleanarchitecture.presentation.architecture
 
-import androidx.lifecycle.viewModelScope
-import arrow.core.valid
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.launch
 
 /**
  * a subclass of [androidx.lifecycle.ViewModel] which has state and effect.
@@ -26,7 +23,7 @@ abstract class ViewModel<STATE: Any, EFFECT: Any> : androidx.lifecycle.ViewModel
   val state: Flow<STATE> get() = _state.asStateFlow()
 
   private val _effect: MutableSharedFlow<EFFECT> by lazy {
-    MutableSharedFlow<EFFECT>()
+    MutableSharedFlow()
   }
 
   /**
@@ -40,14 +37,14 @@ abstract class ViewModel<STATE: Any, EFFECT: Any> : androidx.lifecycle.ViewModel
   abstract fun initialState(): STATE
 
   /**
-   *
+   * update the state of the ViewModel
    */
   internal suspend fun onNewState(state: STATE) {
     _state.emit(state)
   }
 
   /**
-   *
+   * do effect
    */
   internal suspend fun doEffect(effect: EFFECT) {
     _effect.emit(effect)
