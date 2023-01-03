@@ -36,6 +36,11 @@ dependencies {
   kapt(libs.hilt.compiler)
   implementation(libs.arrow.core)
   testImplementation(libs.junit)
+  testImplementation(libs.kotlin.coroutines.test)
+  testImplementation(libs.mockk.android)
+  testImplementation(libs.mockk.agent)
+  testImplementation(libs.truth)
+  testImplementation(libs.turbine)
 }
 
 kapt {
