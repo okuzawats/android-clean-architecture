@@ -2,13 +2,13 @@ package com.okuzawats.cleanarchitecture.presentation.main
 
 import app.cash.turbine.test
 import arrow.core.Either
+import com.google.common.truth.Truth.assertThat
 import com.okuzawats.cleanarchitecture.domain.getrandomdogimage.GetRandomDogImageUseCase
 import com.okuzawats.cleanarchitecture.domain.getrandomdogimage.exception.DogImageFetchingException
 import com.okuzawats.cleanarchitecture.domain.getrandomdogimage.model.DogImage
 import com.okuzawats.cleanarchitecture.presentation.CoroutineRule
 import io.mockk.coEvery
 import io.mockk.mockk
-import junit.framework.TestCase.assertTrue
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.runTest
@@ -51,7 +51,9 @@ class MainViewModelTest {
 
     target.state.test {
       target.onEntered()
-      assertTrue(awaitItem() is MainViewModelState.Initial)
+
+      assertThat(awaitItem())
+        .isInstanceOf(MainViewModelState.Initial::class.java)
       awaitItem()
       awaitItem()
     }
@@ -65,8 +67,10 @@ class MainViewModelTest {
 
     target.state.test {
       target.onEntered()
+
       awaitItem()
-      assertTrue(awaitItem() is MainViewModelState.Loading)
+      assertThat(awaitItem())
+        .isInstanceOf(MainViewModelState.Loading::class.java)
       awaitItem()
     }
   }
@@ -79,9 +83,11 @@ class MainViewModelTest {
 
     target.state.test {
       target.onEntered()
+
       awaitItem()
       awaitItem()
-      assertTrue(awaitItem() is MainViewModelState.Loaded)
+      assertThat(awaitItem())
+        .isInstanceOf(MainViewModelState.Loaded::class.java)
     }
   }
 
@@ -93,9 +99,11 @@ class MainViewModelTest {
 
     target.state.test {
       target.onEntered()
+
       awaitItem()
       awaitItem()
-      assertTrue(awaitItem() is MainViewModelState.LoadFailed)
+      assertThat(awaitItem())
+        .isInstanceOf(MainViewModelState.LoadFailed::class.java)
     }
   }
 
@@ -103,7 +111,9 @@ class MainViewModelTest {
   fun onLicenseAction_emits_NavigateToLicense_event() = runTest {
     target.effect.test {
       target.onLicenseAction()
-      assertEquals(MainViewModelEvent.NavigateToLicense, awaitItem())
+
+      assertThat(awaitItem())
+        .isInstanceOf(MainViewModelEvent.NavigateToLicense::class.java)
     }
   }
 }
