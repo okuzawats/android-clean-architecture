@@ -8,6 +8,8 @@ import kotlinx.coroutines.test.setMain
 import org.junit.rules.TestWatcher
 import org.junit.runner.Description
 
+// TODO: create common module for test
+
 @OptIn(ExperimentalCoroutinesApi::class)
 class CoroutineRule : TestWatcher() {
 
