@@ -12,6 +12,7 @@ oss-licenses-plugin = "0.10.6"
 
 kotlin-core = "1.7.20"
 kotlin-serialization = "1.4.1"
+kotlin-coroutines = "1.6.4"
 
 androidx-core-ktx = "1.9.0"
 androidx-lifecycle-runtime-ktx = "2.5.1"
@@ -34,10 +35,12 @@ uniflow = "1.1.2"
 coil = "2.2.2"
 
 junit = "4.13.2"
+turbine = "0.12.1"
 
 [libraries]
 oss-licenses-plugin = { module = "com.google.android.gms:oss-licenses-plugin", version.ref = "oss-licenses-plugin" }
 kotlin-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlin-serialization" }
+kotlin-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlin-coroutines" }
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-core-ktx" }
 androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle-runtime-ktx" }
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle-viewmodel-ktx" }
@@ -65,3 +68,4 @@ uniflow-android = { module = "org.uniflow-kt:uniflow-android", version.ref = "un
 uniflow-android-test = { module = "org.uniflow-kt:uniflow-android-test", version.ref = "uniflow" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 junit = { module = "junit:junit", version.ref = "junit" }
+turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
