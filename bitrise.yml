@@ -80,8 +80,10 @@ app:
       MODULE: app
     - opts:
         is_expand: false
-      VARIANT: "Debug"
+      VARIANT: Debug
 trigger_map:
-  - pull_request_source_branch: "*"
-    pull_request_target_branch: "main*"
+  - push_branch: main
+    workflow: primary
+  - pull_request_source_branch: '*'
+    pull_request_target_branch: main*
     workflow: primary
