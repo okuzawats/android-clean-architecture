@@ -1,6 +1,7 @@
 # Android Clean Architecture
 
 [![Build Status](https://app.bitrise.io/app/47a5496c751e96f9/status.svg?token=-L9CjMXhU8sp5g4bfSRaeQ&branch=main)](https://app.bitrise.io/app/47a5496c751e96f9)
+[![danger](https://github.com/okuzawats/android-clean-architecture/actions/workflows/danger.yml/badge.svg)](https://github.com/okuzawats/android-clean-architecture/actions/workflows/danger.yml)
 
 A sample project of Android clean architecture.
 
