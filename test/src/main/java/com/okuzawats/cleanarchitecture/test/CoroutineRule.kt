@@ -1,4 +1,4 @@
-package com.okuzawats.cleanarchitecture.domain
+package com.okuzawats.cleanarchitecture.test
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -7,8 +7,6 @@ import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
 import org.junit.rules.TestWatcher
 import org.junit.runner.Description
-
-// TODO: create common module for test
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class CoroutineRule : TestWatcher() {

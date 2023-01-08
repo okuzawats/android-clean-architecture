@@ -1,12 +1,10 @@
 plugins {
   id("com.android.library")
   id("org.jetbrains.kotlin.android")
-  id("com.google.dagger.hilt.android")
-  id("kotlin-kapt")
 }
 
 android {
-  namespace = "com.okuzawats.cleanarchitecture.presentation"
+  namespace = "com.okuzawats.cleanarchitecture.test"
   compileSdk = libs.versions.android.compileSdk.get().toInt()
 
   defaultConfig {
@@ -17,7 +15,7 @@ android {
   }
 
   buildTypes {
-    getByName("release") {
+    release {
       isMinifyEnabled = false
       proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
     }
@@ -32,16 +30,6 @@ android {
 }
 
 dependencies {
-  implementation(project(":domain"))
-  testImplementation(project(":test"))
-  implementation(libs.androidx.lifecycle.viewmodel.ktx)
-  implementation(libs.arrow.core)
-  implementation(libs.hilt.android)
-  kapt(libs.hilt.compiler)
-  testImplementation(libs.junit)
-  testImplementation(libs.kotlin.coroutines.test)
-  testImplementation(libs.mockk.android)
-  testImplementation(libs.mockk.agent)
-  testImplementation(libs.truth)
-  testImplementation(libs.turbine)
+  implementation(libs.junit)
+  implementation(libs.kotlin.coroutines.test)
 }
