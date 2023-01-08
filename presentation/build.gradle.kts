@@ -33,6 +33,7 @@ android {
 
 dependencies {
   implementation(project(":domain"))
+  testImplementation(project(":test"))
   implementation(libs.androidx.lifecycle.viewmodel.ktx)
   implementation(libs.arrow.core)
   implementation(libs.hilt.android)

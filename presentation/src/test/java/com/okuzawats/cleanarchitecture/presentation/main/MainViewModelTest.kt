@@ -6,7 +6,7 @@ import com.google.common.truth.Truth.assertThat
 import com.okuzawats.cleanarchitecture.domain.getrandomdogimage.GetRandomDogImageUseCase
 import com.okuzawats.cleanarchitecture.domain.getrandomdogimage.exception.DogImageFetchingException
 import com.okuzawats.cleanarchitecture.domain.getrandomdogimage.model.DogImage
-import com.okuzawats.cleanarchitecture.presentation.CoroutineRule
+import com.okuzawats.cleanarchitecture.test.CoroutineRule
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
